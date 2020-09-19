@@ -1,0 +1,68 @@
+<body>
+
+<section id="search-text-field">   <!-- SEARCH SECTION STARTS HERE -->
+    <div class="main-image d-flex justify-content-center align-items-center flex-column">
+        <div class="dark-overlay"></div>
+        <div class="search-bar">
+          <h1 class=" main-heading display-2 text-center text-light ">Google Books</h1>
+            <form #search="ngForm" (ngSubmit)="onSearch()">
+                <div class="input-group mb-3 form-group">
+                    <label for="" class="text-light m-2">filter :</label>
+                    <div class="input-group-prepend">    <!-- SEARCH-FILTERS STARTS HERE -->
+                        <select  class="filter-group form-control " id="searchBy" name="filter"
+                               [(ngModel)]="filter">
+                               <option selected>any</option>
+                               <option >author</option>
+                               <option >title</option>
+                               </select>                 <!-- SEARCH-FILTER ENDS HERE -->                      
+                    </div>
+                    <!-- SEARCH INPUT SECTION STARTS HERE -->
+                    <input type="text" class="form-control" 
+                                    placeholder="Search books..." 
+                                    aria-label="Recipient's username" 
+                                    aria-describedby="button-addon2"
+                                    placeholder="Search any book...."
+                                    name="search"
+                                    #userQuery="ngModel"
+                                    [(ngModel)]="term"
+                                    required>   <!-- SEARCH INPUT SECTION ENDS HERE --> 
+                                    
+                    <div class="input-group-append form-group"> <!--SEARCH BUTTON STARTS HERE-->
+                      <button id="search-button" class="btn btn-secondary" (click)="onSearch()" type="button" id="button-addon2"><i class="fa fa-search" aria-hidden="true" ></i></button>
+                    </div> <!--SEARCH BUTTON ENDS  HERE-->
+                    <!-- VALIDATION
+                    <div class="validation form-group">
+                      <small *ng>search field can't be empty</small>
+                    </div> -->
+                </div>
+            </form>
+          </div>
+    </div>
+  </section>
+                            <!-- DISPLAYING THE RESULTS -->
+  <section id="search-results ">  <!--SEARCH RESULTS SECTION STARTS HERE-->
+    <div class=" display container">
+      
+        <div class="row">
+            <div class="card-sub col-sm-10 col-md-6 col-lg-4 mb-4" *ngFor="let book of books">
+                <div class= "book-card shadow-lg p-3  card mb-3 " style="max-width: 540px"> <!-- BOOK CARD STARTS HERE-->
+                        <img src="{{book.bookImage}}" class="card-img img-fluid h-100 " alt="...">
+                    
+                      <div class="card-body">
+                        <h5 class="card-title m-auto">{{book.bookTitle}}</h5>
+                        <p class="card-text m-auto"><small >written by :{{book.bookAuthor}}</small></p>
+                      </div>
+                      <button class="btn btn-outline-success btn-block align-self-end" href="#" (click)="onRecommend(book)">Recommend</button>
+                </div>  <!-- BOOK CARD ENDS HERE-->
+            </div>
+        </div>
+    </div>
+  </section>  <!--SEARCH RESULTS SECTION ENDS HERE-->
+
+  <footer class="search-footer">
+    <p>All rights reserved &copy; Dxc Technology</p>
+  </footer>
+</body>
+
+
+  

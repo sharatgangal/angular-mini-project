@@ -1,0 +1,128 @@
+<section class="container-fluid bg">
+    <div class="row">
+      <div class=" register-card col-xm-6 col-sm-6 col-md-6 col-lg-6  " >
+            <form class="form-container" #registerForm="ngForm" (ngSubmit)="onRegister()  " >
+            <div class="form-heading">
+                <h1 class="display-5 text-secondary">Registration </h1>
+            </div>
+            <div class="form-group">  <!-- Username input starts here-->
+                <label for="userName">Username</label>
+                <input type="text" class="form-control"
+                                id="userName" 
+                                placeholder="Enter the name"
+                                name="userName"
+                                #userName="ngModel"
+                                [(ngModel)]=user.userName
+                                required
+                                minlength="3">
+            </div>   <!-- Username input ends here-->
+
+            <div class="help-block">  <!-- Validation for UserName field starts here-->
+                <p *ngIf="!userName.valid && userName.touched" 
+                    class="help-block text-danger pl-3 ">
+                   <li><small>User name should be atleast 3 charectors</small></li> </p>
+           </div>  <!-- Validation for UserName field ends here-->
+
+                    <div class="form-group"> <!-- userId  input field starts here-->
+                        <label for="userId">Email Id</label>
+                        <input type="email" class="form-control"
+                                        id="userId" 
+                                        placeholder="Enter Email Id"
+                                        name="userId"
+                                        #userId="ngModel"
+                                        [(ngModel)]=user.userId
+                                        required
+                                        email>
+                    </div>  <!-- userId  input field ends here-->
+
+                    <div class="help-block"><!-- Validation for userId(emailId) field starts here-->
+                        <p *ngIf="!userId.valid && userId.touched" 
+                            class="help-block text-danger pl-2">
+                            <li><small>Enter the valid Email</small></li>
+                        </p>
+                   </div>	<!-- Validation for UserName field ends here-->
+
+                    
+                <div class="form-group">        <!-- password input starts here-->
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control"
+                                    id="password" 
+                                    placeholder="Enter the password"
+                                    name="password"
+                                    #password="ngModel"
+                                    [(ngModel)]=user.password
+                                    required
+                                    minlength="4">  <!-- password input ends here-->
+                </div>
+                
+                <div class="help-block">  <!-- Validation for password field ends here-->
+                    <p *ngIf="!password.valid && password.touched" 
+                        class="help-block text-danger pl-2">
+                        <li><small>Password should contain atleast 4 charector</small></li>
+                    </p>
+               </div>    <!-- Validation for password field ends here-->
+
+             
+                <div class="form-group">        <!-- Verify password input starts here-->
+                    <label for="password">Verify Password</label>
+                    <input type="password" class="form-control"
+                                    id="verifyPassword" 
+                                    placeholder=" Verify password"
+                                    name="verifyPassword"
+                                    #verifyPassword="ngModel"
+                                    [(ngModel)]=user.verifyPassword
+                                    required
+                                    minlength="4">  <!-- Verify password input ends here-->
+                </div>
+
+                <div class="help-block">  <!-- Validation for verify password field ends here-->
+                    <p *ngIf="!verifyPassword.valid && verifyPassword.touched" 
+                        class="help-block text-danger pl-2">
+                        <li><small>Password should contain atleast 4 charector</small></li>
+                    </p>
+               </div>    <!-- Validation for verify password field ends here-->
+
+            <div class="form-group"> <!-- Gender field starts here-->
+                <label for="gender">Gender</label>
+                <select name="gender" 
+
+                        id="gender" 
+                        #gender="ngModel" 
+                        [(ngModel)]=user.gender 
+                        required class="form-control"
+                        >
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Others">Others</option>
+                </select>
+            </div> <!-- Gender fields ends here-->
+
+            <div class="help-block">  <!-- Validation for gender field starts here-->
+                <p *ngIf="!gender.valid && gender.touched" 
+                    class="help-block text-danger pl-2">
+                    <li><small>Gender  can't be Empty</small></li>
+                </p>
+           </div>  <!-- Validation for gender field ends here-->
+
+           <div class="form-group">  <!-- country fields starts here-->
+                <label for="country">Country</label>
+                <select name="country" id="country" #country="ngModel" [(ngModel)]=user.country required class="form-control">
+                    <option *ngFor="let country of countries">{{country}}</option>
+                </select>
+            </div> <!-- country fields ends here-->
+
+            <div class="help-block"> <!-- Validation for gender field starts here-->
+                <p *ngIf="!country.valid && country.touched" 
+                    class="help-block text-danger pl-2">
+                    <li><small>country  can't be Empty</small></li>
+                </p>
+            </div>   <!-- Validation for gender field ends here-->
+
+            <div class="form-group"> <!-- Submitt button for the form-->
+                <button class="btn btn-success btn-block"[disabled]=!registerForm.valid>Register</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</section>
+        

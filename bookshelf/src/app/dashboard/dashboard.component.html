@@ -1,0 +1,72 @@
+<h1 class="m-5"></h1>
+<section id="search-text-field">  <!-- Search section starts here -->
+    <div class="main-image d-flex justify-content-center align-items-center flex-column">
+        <div class="dark-overlay"></div>
+        <h1 class=" main-heading display-4 text-center text-dark ">Search book by any author</h1>
+
+        <div class="search-bar">
+            <form #search="ngForm" (ngSubmit)="onSearch()">
+                <div class="input-group mb-3 form-group">
+                    <div class="input-group-prepend">
+                    </div>
+                    <!-- search input field starts here -->
+                    <input type="text" class="form-control" 
+                                    placeholder="Search books..." 
+                                    aria-label="Recipient's username" 
+                                    aria-describedby="button-addon2"
+                                    placeholder="Search book by author"
+                                    name="search"
+                                    #userquery="ngModel"
+                                    [(ngModel)]="authorName"> <!-- search input field starts here -->
+                    <div class="input-group-append form-group">  <!-- search button starts here -->
+                      <button class="btn btn-secondary" (click)="onSearch()" type="button" id="button-addon2"><i class="fa fa-search" aria-hidden="true" ></i></button>
+                    </div>  <!-- search button ends here -->
+                </div>
+            </form>
+        </div>
+    </div>
+  </section><!-- Search section ends here -->
+
+                          <!-- DISPLAYING THE RESULTS -->
+
+<section class="search-results-section mt-2"> <!-- Recommende section starts here -->
+  <div class=" display container">
+      <div class="row">
+          <div class="col-sm-10 col-md-6 col-lg-4 mb-4  " *ngFor="let book of books">
+              <div class= "book-card shadow p-3 card mb-3 h-100 mb-2 d-flex flex-column" style="max-width: 540px">
+                      <img src="{{book.bookImage}}" class="card-img img-fluid h-100 " alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">{{book.bookTitle}}</h5>
+                      <p class="card-text"><small class="text-muted">written by : {{book.bookAuthor}}</small></p>
+                    </div>
+                    
+              </div>  
+          </div>
+      </div>
+  </div>
+</section><!-- Recommende section ends here -->
+
+
+ 
+
+
+        <p class="favorite-section shadow p-3 bg-dark text-light p-2"> Recommended Books<p>
+ <!-- DISPLAYING THE RESULTS -->
+ <section class="recommended-section">
+    <div class=" display container">
+        <div class="row">
+            <div class="col-sm-10 col-md-6 col-lg-4 mb-4  " *ngFor="let book of recommended">
+                <div class= "book-card shadow p-3 card mb-3 h-100 mb-2 d-flex flex-column" style="max-width: 540px">
+                        <img src="{{book.bookImage}}" class="card-img img-fluid h-100 " alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">{{book.bookTitle}}</h5>
+                        <p class="card-text"><small class="text-muted">written by : {{book.bookAuthor}}</small></p>
+                        
+                      </div>
+                      
+                </div>  
+            </div>
+        </div>
+    </div>
+     </section>
+     

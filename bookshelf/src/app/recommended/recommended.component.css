@@ -1,0 +1,27 @@
+.recommended-section{
+    margin-top: 60px;
+}
+.card-img{
+    max-height: 200px;
+    }
+.unrecomend-btn{
+    margin-top: 2rem;
+}
+
+.book-card{
+    height: 100%;
+    max-height: auto;
+    flex-wrap: nowrap;
+    display: flex;
+    flex-direction: column;
+    border: 2px grey solid;
+}
+.book-card:hover
+{
+    transform:scale(0.95);
+    border: green 2px solid;
+    transition-duration: 700ms;
+}
+.card-text{
+    font-weight: 500;
+}

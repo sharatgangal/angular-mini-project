@@ -1,0 +1,55 @@
+.main-image{
+    /* background: url(https://images.unsplash.com/photo-1534774592507-488885376ad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 30vh;
+    
+    background-attachment: fixed;
+}
+.main-heading
+{
+    z-index: 2;
+    margin-bottom: 20px;
+}
+.search-bar{
+    width: 85%;
+    z-index: 2;
+}
+.favorite-section{
+    border: 1px solid;
+    text-align: center;
+    margin:0;
+    padding: 0;
+    
+}
+
+.book-card{
+    height: 100%;
+    max-height: auto;
+    flex-wrap: nowrap;
+    display: flex;
+    flex-direction: column;
+    border: 2px grey solid;
+}
+.book-card:hover
+{
+    transform:scale(0.95);
+    border: green 2px solid;
+    transition-duration: 700ms;
+}
+.card-img{
+    max-height: 200px;
+}
+.unrecomend-btn{
+    margin-top: 2rem;
+}
+
+.card-title
+{
+    min-height: 40px;
+}
+.card-text{
+    font-weight: 500;
+}

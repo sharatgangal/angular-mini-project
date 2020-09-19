@@ -1,0 +1,5 @@
+com.dxc.book
+com.dxc.book.controller
+com.dxc.book.model
+com.dxc.book.repository
+com.dxc.book.service

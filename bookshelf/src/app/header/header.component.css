@@ -1,0 +1,19 @@
+nav{
+    opacity: 0.9;
+}
+
+.navbar .nav-link {
+    font-size: 14px;
+    text-transform: uppercase;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+.home-nav{
+border-left: 1px grey solid;
+}
+
+.dropdown-menu{
+  z-index: 10001;
+  
+}

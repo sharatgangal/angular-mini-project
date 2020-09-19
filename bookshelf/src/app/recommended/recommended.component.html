@@ -1,0 +1,19 @@
+<section class="recommended-section">  <!-- Recommended section starts here -->
+    <div class=" display container">
+        <div class="row">
+            <div class="col-sm-10 col-md-6 col-lg-4 mb-4" *ngFor="let book of books">
+                        <!--favorite books in the form card-->
+                <div class= "book-card shadow p-3 card  " style="max-width: 540px">
+                        <img src="{{book.bookImage}}" class="card-img img-fluid  " alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">{{book.bookTitle}}</h5>
+                        <p class="card-text"><small class="">written by : {{book.bookAuthor}}
+                        </small></p>
+                      </div>
+                      <button class="unrecomend-btn btn btn-outline-dark  btn-block align-self-end " href="#" (click)="onUnRecommend(book)">UnRecommned</button>
+                </div>  
+            </div>
+        </div>
+    </div>
+</section>  <!-- Recommended section ends here -->
+

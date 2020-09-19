@@ -1,0 +1,85 @@
+<body class="update-body">
+<section class="container-fluid bg">
+    <div class="row ">
+      <div class=" update-card col-xm-6 col-sm-8 col-md-9 col-lg-9 mb-3 " >
+            <form class="form-container"#updateForm=ngForm>     
+                 <!-- userId  -->
+                 <div class="form-group">
+                                    <div class="user-id ">          
+                                        <p class="userid-heading ">{{user.userId}}</p>
+                                    </div>
+                </div>
+                    <!-- Username -->
+               <div class="form-group"> <!-- Username  field starts from here-->
+                <label for="userName">New Username</label>
+                <input type="text" class="form-control"
+                                id="userName" 
+                                placeholder="Enter the name"
+                                name="userName"
+                                #userName="ngModel"
+                                [(ngModel)]=user.userName
+                                required
+                                minlength="5"
+                                ><!-- Username  field ends from here-->
+            </div>
+            <div class="help-block"><!-- Username  field validation starts from here-->
+                <p *ngIf="!userName.valid && userName.touched" 
+                    class="help-block text-danger ">
+                    <small>user name should be atleast 3 charectors</small></p>
+           </div><!-- Username  field validation ends  here-->
+	
+
+                   <!-- password -->
+                   <div class="form-group">  <!-- password field starts from here -->
+                    <label for="password">Change Password</label>
+                    <input type="password" class="form-control"
+                                    id="password" 
+                                    placeholder="Enter the password"
+                                    name="password"
+                                    #password="ngModel"
+                                    [(ngModel)]=user.password
+                                    required
+                                    minlength="5"
+                                    ><!-- password field ends from here -->
+                </div>
+                <div class="help-block"> <!-- password field validation starts from here -->
+                    <p *ngIf="!password.valid && password.touched" 
+                        class="help-block text-danger ">
+                        <small>Password should be atleast 5 charector</small></p>
+               </div> <!-- password field validation ends  here -->
+
+            <div class="form-group"> <!-- gender field starts from here -->
+                <label for="gender">Gender</label>
+                <select name="gender" id="gender" #gender="ngModel" [(ngModel)]=user.gender required class="form-control">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Others">Others</option>
+                </select>
+            </div><!-- gender field ends here -->
+            <div class="help-block"> <!-- gender field  validation starts from here -->
+                <p *ngIf="!gender.valid && gender.touched" 
+                    class="help-block text-danger ">
+                    <small>Gender field can't be Empty</small></p>
+           </div><!-- gender field  validation ends  here -->
+
+           <div class="form-group"> <!-- country field starts from here -->
+                <label for="gender">Country</label>
+                <select name="country" id="country" #country="ngModel" [(ngModel)]=user.country required class="form-control">
+                    <option *ngFor="let country of countries">{{country}}</option>
+                </select>
+            </div><!-- country field ends here -->
+
+            <div class="help-block"> <!-- country field validation starts from here -->
+                <p *ngIf="!country.valid && country.touched" 
+                    class="help-block text-danger ">
+                    <small>country field can't be Empty</small></p>
+            </div><!-- country field validation ends from here -->
+
+            <div> <!-- button starts from here -->
+                <a><button [disabled]=!updateForm.valid (click)="updateUser()" class="btn btn-success btn-block">Submit</button></a>
+            </div>  <!-- button ends here -->
+            </form>
+        </div>
+    </div>
+</section>
+</body>

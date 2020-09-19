@@ -1,0 +1,47 @@
+<section class="container-fluid bg">  <!--Login section starts here-->
+    <div class="row ">
+      <div class=" login-card col-sm-6 col-md-8 col-lg-6  " >
+        <form class="form-container" (ngSubmit)="onLogin()">
+          <h1 class="display-5 text-secondary">Login </h1>
+            <div class="form-group">  <!--emailId input field starts here-->
+              <label for="emailId">Email address</label>
+              <input  [(ngModel)]="user.userId" 
+                      placeholder="Enter email" 
+                      name="emailId" 
+                      id="userId" 
+                      type="text" 
+                      class="form-control"
+                      #userId="ngModel"
+                      required
+                      email>      <!--emailId input field ends here-->                  
+            </div>
+                
+            <div class="form-group">   <!--Password input field starts here-->
+              <label for="password">Password</label>
+              <input  [(ngModel)]="user.password" 
+                      placeholder="Enter password" 
+                      name="password" 
+                      id="password" 
+                      type="password" 
+                      class="form-control"
+                      #password="ngModel"
+                      required>     <!--Password input field starts here-->
+            </div>
+
+            <a class="mb-2">    <!--Login Button  starts here-->
+              <button  class="btn btn-primary btn-block">Login</button>
+            </a>                <!--Login Button  ends here-->
+
+            <div class="register-link">
+              <small class="my-2">New User? Register here!</small>
+              <a>                  <!--Register Button  starts here-->
+                <button (click)="userNavigate()" class="btn btn-primary btn-block">Register Now</button>    <!--Register Button  ends here-->
+              </a>  
+            </div>
+
+                        
+          </form>
+        </div>
+      </div>
+    
+    </section>   <!--Login section ends here-->
